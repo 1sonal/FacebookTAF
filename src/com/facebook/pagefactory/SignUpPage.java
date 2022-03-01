@@ -3,8 +3,18 @@ package com.facebook.pagefactory;
 import com.facebook.generic.BaseTest;
 
 public class SignUpPage extends BaseTest {
+			String userName;
+			String lastName;
+			public SignUpPage(){
+				userName="Raj";
+				lastName="Sinha";
+			}
+			public SignUpPage(String userName,String lastName){
+				this.userName=userName;
+				this.lastName=lastName;
+			}
 	
-	//Step 1 : open browser
+	        //Step 1 : open browser
 			//Step 2 : open URL
 			//Step 3 : navigate to login page
 			//Step 4 : click on 'create new account'
@@ -49,12 +59,12 @@ public class SignUpPage extends BaseTest {
 			
 			//Step 6
 			public void setFirstNameOnSignUpPage(String strFirstName){
-				System.out.println("First Name:"+strFirstName);
+				System.out.println("First Name:"+ userName+"_"+strFirstName);
 			}
 			
 			//Step 7
 			public void setLastNameOnSignUpPage(String strLastName){
-				System.out.println("Last Name:"+strLastName);
+				System.out.println("Last Name:"+lastName+"_"+strLastName);
 			}
 			
 			//Step 8

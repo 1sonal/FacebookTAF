@@ -11,19 +11,20 @@ public class FacebookSignUpTest {
 		public static void main(String[] args) {
 			UtilitiesFunctions objUtilitiesFunctions=new UtilitiesFunctions();
 			SignUpPage objSignUpPage=new SignUpPage();
+			SignUpPage objectSignUpPage=new SignUpPage("Lata","Dey");
 			objSignUpPage.intialiseEnvironment();
 			objSignUpPage.openURL("https://www.facebook.com");
 			objSignUpPage.goToLoginPage();
 			objSignUpPage.clickOnCreateNewAccount();
 			objSignUpPage.goToSignUpPage();
-			objSignUpPage.setFirstNameOnSignUpPage(objUtilitiesFunctions.generateRandomString());
-			objSignUpPage.setLastNameOnSignUpPage(objUtilitiesFunctions.generateRandomString());
+			objSignUpPage.setFirstNameOnSignUpPage(objUtilitiesFunctions.getRandomString(4));
+			objectSignUpPage.setLastNameOnSignUpPage(objUtilitiesFunctions.getRandomString(4));
 			objSignUpPage.setMobileNumberOnSignUpPage(objUtilitiesFunctions.generateRandomMobileNumber());
-			objSignUpPage.setPassword("Alpha690");
-			objSignUpPage.setDateOfBirthOnSignUpPage(objUtilitiesFunctions.randomDOBInRange(1, 31));
-			objSignUpPage.setMonthOfBirthOnSignUpPage(objUtilitiesFunctions.randomMonthOfBirth());
-			objSignUpPage.setYearOfBirthOnSignUpPage(objUtilitiesFunctions.randomYearOfBirthInRange(1909, 2009));
-			objSignUpPage.clickOnGenderOnsignUpPage("Female");
+			objSignUpPage.setPassword(objUtilitiesFunctions.getRandomString(4)+objUtilitiesFunctions.getRandomNumbers(3));
+			objSignUpPage.setDateOfBirthOnSignUpPage(objUtilitiesFunctions.getRandomNumberInRange(1, 31));
+			objSignUpPage.setMonthOfBirthOnSignUpPage(objUtilitiesFunctions.generateRandomMonth());
+			objSignUpPage.setYearOfBirthOnSignUpPage(objUtilitiesFunctions.getRandomNumberInRange(1950, 2009));
+			objSignUpPage.clickOnGenderOnsignUpPage(objUtilitiesFunctions.generateRandomGender());
 			objSignUpPage.clickOnSignUpButton();
 			objSignUpPage.goToConfirmationCodePopup();
 			objSignUpPage.enterConfirmationCode("56783");

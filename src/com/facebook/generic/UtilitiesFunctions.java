@@ -26,27 +26,51 @@ public class UtilitiesFunctions {
 	
 	public String generateRandomMobileNumber(){
 		String[] num1={"99","98","94","73","90","96","90"};
-		int num2=random.nextInt(10000)+1000;
-		int num3=random.nextInt(10000)+1000;
+		String randomString="";
 		int randomTwoDigits=random.nextInt(num1.length);
-		
-		String randomMobileNumber=num1[randomTwoDigits]+num2+num3;
-	//	System.out.println(randomMobileNumber);
-		return randomMobileNumber;
+		UtilitiesFunctions objUtilitiesFunctions=new UtilitiesFunctions();
+		randomString=randomString+num1[randomTwoDigits]+objUtilitiesFunctions.getRandomNumbers(8);
+		return randomString;
+
 	}
 
-	public int randomDOBInRange(int start,int end){
-	//	System.out.println(random.nextInt(end+1-start)+start);
+	public int getRandomNumberInRange(int start,int end){
 		return random.nextInt(end+1-start)+start;
 	}
 	
-	public String randomMonthOfBirth(){
+	public String generateRandomMonth(){
 		String[] month={"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
 		int randomMonthnumber=random.nextInt(month.length);
 		return month[randomMonthnumber];
 	}
 	
-	public int randomYearOfBirthInRange(int start,int end){
-		return random.nextInt(end+1-start)+start;
+	public String generateRandomGender(){
+		String[] gender={"Female","Male","Custom"};
+		int randomGender=random.nextInt(gender.length);
+		return gender[randomGender];
+	}
+	
+	
+	public String getRandomNumbers(int length){
+
+		String allowedChars="0123456789";
+		String randomString="";
+		for(int i=0;i<length;i++){
+		int rnum= (int) Math.floor(Math.random()*allowedChars.length());
+		randomString += allowedChars.substring(rnum, rnum+1);
+		}
+
+		return randomString;
+		}
+	
+	public String getRandomString(int length){
+		String allowedChars="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+		String randomString="";
+		for(int i=0;i<length;i++){
+		int rnum= (int) Math.floor(Math.random()*allowedChars.length());
+		randomString += allowedChars.substring(rnum, rnum+1);
+		}
+
+		return randomString;
 	}
 }
